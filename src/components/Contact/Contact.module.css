@@ -1,0 +1,43 @@
+.item {
+  border: 1px solid black;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px 0 18px;
+  width: 300px;
+  height: 75px;
+}
+.item:not(:last-child) {
+  margin-bottom: 8px;
+}
+.para {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.para:not(:last-child) {
+  margin-bottom: 12px;
+}
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 0;
+}
+.button:hover,
+.button:focus {
+  transform: scale(103%);
+}
+.button:active {
+  transform: scale(97%);
+}

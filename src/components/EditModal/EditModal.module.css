@@ -1,0 +1,59 @@
+.inputsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+.input {
+  font-size: 18px;
+  height: 35px;
+  padding-left: 12px;
+}
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 64px;
+}
+.editBtn,
+.cancelBtn {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid #000;
+  border-radius: 6px;
+}
+.editBtn {
+  color: #fff;
+  background-color: #000;
+}
+.editBtn:hover,
+.cancelBtn:focus {
+  color: #000;
+  background-color: #fff;
+}
+.cancelBtn {
+  color: #000;
+  background-color: #fff;
+}
+.cancelBtn:hover,
+.cancelBtn:focus {
+  color: #fff;
+  background-color: #000;
+}
+.editBtn:active,
+.cancelBtn:active {
+  transform: scale(97%);
+}
+.error {
+  position: absolute;
+  bottom: -14px;
+  color: rgb(223, 31, 31);
+  font-size: 12px;
+}

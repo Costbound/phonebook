@@ -1,0 +1,40 @@
+.para {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+.nameSpan {
+  font-weight: 700;
+}
+.btnWrapper {
+  display: flex;
+  gap: 64px;
+}
+.yesBtn,
+.noBtn {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid #000;
+  border-radius: 6px;
+}
+.yesBtn {
+  color: #fff;
+  background-color: #000;
+}
+.yesBtn:hover,
+.yesBtn:focus {
+  color: #000;
+  background-color: #fff;
+}
+.noBtn {
+  color: #000;
+  background-color: #fff;
+}
+.noBtn:hover,
+.noBtn:focus {
+  color: #fff;
+  background-color: #000;
+}
+.yesBtn:active,
+.noBtn:active {
+  transform: scale(97%);
+}

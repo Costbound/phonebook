@@ -1,0 +1,29 @@
+.form {
+  padding: 18px 12px;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 300px;
+  margin-bottom: 26px;
+}
+.inputContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 22px;
+}
+.input {
+  border: 1px solid rgb(124, 124, 124);
+  border-radius: 3px;
+  height: 28px;
+  padding-left: 6px;
+}
+.error {
+  position: absolute;
+  bottom: -14px;
+  color: rgb(223, 31, 31);
+  font-size: 12px;
+}
+.button {
+  margin: 0 auto;
+}

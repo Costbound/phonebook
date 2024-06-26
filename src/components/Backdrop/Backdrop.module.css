@@ -1,0 +1,41 @@
+.backdrop {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #00000058;
+}
+.modal {
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 42px 64px;
+  border-radius: 16px;
+}
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  background-color: transparent;
+}
+.closeBtn:focus,
+.closeBtn:hover {
+  transform: scale(103%);
+}
+.closeBtn:active {
+  transform: scale(97%);
+}

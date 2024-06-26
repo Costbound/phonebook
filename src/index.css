@@ -1,0 +1,7 @@
+:root {
+    font-family: sans-serif;
+}
+button {
+    display: block;
+    padding: 4px 8px;
+}
