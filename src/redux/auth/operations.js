@@ -17,7 +17,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("/users/signup", credentials);
+      const res = await axios.post("/auth/register", credentials);
       setAuthHeader(res.data.token);
       toast.success("You are logged in!");
       return res.data;
@@ -36,7 +36,7 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("/users/login", credentials);
+      const res = await axios.post("/auth/login", credentials);
       setAuthHeader(res.data.token);
       toast.success("You are logged in!");
       return res.data;
@@ -53,7 +53,7 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    const res = await axios.post("/users/logout");
+    const res = await axios.post("/auth/logout");
     clearAuthHeader();
     toast("You are logged out!");
     return res.data;
@@ -69,7 +69,7 @@ export const refreshUser = createAsyncThunk(
     const persistedToken = thunkAPI.getState().auth.token;
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get("/users/current");
+      const res = await axios.get("/auth/refresh");
       toast.success("You are logged in!");
 
       return res.data;
