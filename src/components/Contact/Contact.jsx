@@ -18,6 +18,7 @@ import DeleteModal from "../DeleteModal/DeleteModal";
 import Backdrop from "../Backdrop/Backdrop";
 import EditModal from "../EditModal/EditModal";
 import avatar from "../../assets/no-photo.png";
+import clsx from "clsx";
 
 export default function Contact({
   data: { name, phoneNumber, email, _id, isFavourite, photo, contactType },
@@ -44,7 +45,7 @@ export default function Contact({
             {phoneNumber}
           </p>
           {email && (
-            <p className={css.para}>
+            <p className={clsx(css.para, css.emailPara)}>
               <IoIosMail size="20" />
               {email}
             </p>
@@ -52,7 +53,7 @@ export default function Contact({
           {contactType === "work" ? (
             <p className={css.para}>
               <MdWork size="20" />
-              {contactType.ca}
+              {contactType}
             </p>
           ) : contactType === "home" ? (
             <p className={css.para}>

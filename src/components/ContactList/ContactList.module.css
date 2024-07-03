@@ -1,3 +1,6 @@
 .list {
-  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 12px;
 }

@@ -6,10 +6,10 @@ export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
     try {
-      const resp = await axios.get("/contacts", {
+      const { data: res } = await axios.get("/contacts", {
         params: {},
       });
-      return resp.data.data.contacts;
+      return res.data.items;
     } catch (err) {
       toast.error("Failed to get your contacts data!");
       return thunkAPI.rejectWithValue(err.message);
@@ -21,9 +21,9 @@ export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (contact, thunkAPI) => {
     try {
-      const resp = await axios.post("/contacts", contact);
+      const { data: res } = await axios.post("/contacts", contact);
       toast.success(`Contact ${contact.name}successefully added`);
-      return resp.data;
+      return res.data;
     } catch (err) {
       toast.error("Something going wrong! Please try again");
       return thunkAPI.rejectWithValue(err.message);

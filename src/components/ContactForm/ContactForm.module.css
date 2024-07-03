@@ -1,7 +1,7 @@
 .form {
   padding: 18px 12px;
   border-radius: 6px;
-  width: 300px;
+  min-width: 300px;
   background-color: #fafafa;
 }
 .inputContainer {

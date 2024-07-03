@@ -4,18 +4,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 18px;
+  padding: 14px 18px;
   width: 400px;
-}
-.item:not(:last-child) {
-  margin-bottom: 8px;
 }
 .dataContainer {
   display: flex;
   gap: 8px;
-}
-.paraContainer {
-  margin-top: 8px;
 }
 .para {
   display: flex;
@@ -24,7 +18,10 @@
   text-transform: capitalize;
 }
 .para:not(:last-child) {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+.emailPara {
+  text-transform: none;
 }
 .btnWrapper {
   display: flex;

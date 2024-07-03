@@ -12,8 +12,7 @@ export default function ContactsPage() {
   return (
     <div className={css.container}>
       <ContactForm />
-      <div>
-        {" "}
+      <div className={css.main}>
         <SearchBox />
         {loading && !error && <p className={css.loader}>Loading...</p>}
         <ContactList />
