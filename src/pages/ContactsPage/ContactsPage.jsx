@@ -11,11 +11,13 @@ export default function ContactsPage() {
 
   return (
     <div className={css.container}>
-      <h1 className={css.title}>Phonebook</h1>
       <ContactForm />
-      <SearchBox />
-      {loading && !error && <p className={css.loader}>Loading...</p>}
-      <ContactList />
+      <div>
+        {" "}
+        <SearchBox />
+        {loading && !error && <p className={css.loader}>Loading...</p>}
+        <ContactList />
+      </div>
     </div>
   );
 }

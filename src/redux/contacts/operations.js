@@ -6,7 +6,9 @@ export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
     try {
-      const resp = await axios.get("/contacts");
+      const resp = await axios.get("/contacts", {
+        params: {},
+      });
       return resp.data.data.contacts;
     } catch (err) {
       toast.error("Failed to get your contacts data!");

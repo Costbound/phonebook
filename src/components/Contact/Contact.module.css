@@ -4,25 +4,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 18px 0 18px;
-  width: 300px;
-  height: 75px;
+  padding: 8px 18px;
+  width: 400px;
 }
 .item:not(:last-child) {
   margin-bottom: 8px;
+}
+.dataContainer {
+  display: flex;
+  gap: 8px;
+}
+.paraContainer {
+  margin-top: 8px;
 }
 .para {
   display: flex;
   align-items: flex-end;
   gap: 8px;
+  text-transform: capitalize;
 }
 .para:not(:last-child) {
   margin-bottom: 12px;
 }
 .btnWrapper {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 .button {
   cursor: pointer;

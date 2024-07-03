@@ -26,24 +26,31 @@ export default function ContactForm() {
     actions.resetForm();
   };
   return (
-    <Formik
-      initialValues={{ name: "", number: "" }}
-      onSubmit={handleSubmit}
-      validationSchema={validation}
-    >
-      <Form className={css.form}>
-        <div className={css.inputContainer}>
-          <label htmlFor={nameID}>Name</label>
-          <Field className={css.input} type="text" name="name" id={nameID} />
-          <ErrorMessage className={css.error} name="name" component="span" />
-        </div>
-        <div className={css.inputContainer}>
-          <label htmlFor={telID}>Number</label>
-          <Field className={css.input} type="text" name="number" id={telID} />
-          <ErrorMessage className={css.error} name="number" component="span" />
-        </div>
-        <SubmitBtn>Add contact</SubmitBtn>
-      </Form>
-    </Formik>
+    <>
+      <Formik
+        initialValues={{ name: "", number: "" }}
+        onSubmit={handleSubmit}
+        validationSchema={validation}
+      >
+        <Form className={css.form}>
+          <div className={css.inputContainer}>
+            <label htmlFor={nameID}>Name</label>
+            <Field className={css.input} type="text" name="name" id={nameID} />
+            <ErrorMessage className={css.error} name="name" component="span" />
+          </div>
+          <div className={css.inputContainer}>
+            <label htmlFor={telID}>Number</label>
+            <Field className={css.input} type="text" name="number" id={telID} />
+            <ErrorMessage
+              className={css.error}
+              name="number"
+              component="span"
+            />
+          </div>
+          <SubmitBtn>Add contact</SubmitBtn>
+        </Form>
+      </Formik>
+      <div className={css.bg}></div>
+    </>
   );
 }
