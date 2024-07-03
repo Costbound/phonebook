@@ -2,7 +2,6 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
-axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 axios.defaults.headers.common["Content-Type"] = "application/json";
 
 const setAuthHeader = (token) => {
@@ -17,15 +16,21 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("/auth/register", credentials);
-      setAuthHeader(res.data.token);
-      toast.success("You are logged in!");
+      const { data: res } = await axios.post("/auth/register", credentials);
+
+      if (res.data.token) {
+        setAuthHeader(res.data.token);
+      }
+
+      toast.success(
+        res.data.token ? "You are logged in!" : "Accaunt successfully created!"
+      );
+
       return res.data;
     } catch (err) {
+      console.log(err);
       toast.error(
-        err.response.status === 400
-          ? "This email already registered or entered data is not valid"
-          : err.message
+        err.response.status === 409 ? "This email already in use!" : err.message
       );
       return thunkAPI.rejectWithValue(err.message);
     }
@@ -36,13 +41,15 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("/auth/login", credentials);
+      const { data: res } = await axios.post("/auth/login", credentials, {
+        withCredentials: true,
+      });
       setAuthHeader(res.data.token);
       toast.success("You are logged in!");
       return res.data;
     } catch (err) {
       toast.error(
-        err.response.status === 400
+        err.response.status === 401
           ? "User not founded or password is incorrect"
           : err.message
       );
@@ -53,7 +60,11 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    const res = await axios.post("/auth/logout");
+    const { data: res } = await axios.post(
+      "/auth/logout",
+      {},
+      { withCredentials: true }
+    );
     clearAuthHeader();
     toast("You are logged out!");
     return res.data;
@@ -66,22 +77,20 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
-    const persistedToken = thunkAPI.getState().auth.token;
     try {
-      setAuthHeader(persistedToken);
-      const res = await axios.get("/auth/refresh");
+      const { data: res } = await axios.post(
+        "/auth/refresh",
+        {},
+        { withCredentials: true }
+      );
+
+      setAuthHeader(res.data.token);
       toast.success("You are logged in!");
 
       return res.data;
     } catch (err) {
-      clearAuthHeader();
+      // clearAuthHeader();
       return thunkAPI.rejectWithValue(err.message);
     }
-  },
-  {
-    condition(_, thunkAPI) {
-      const persistedToken = thunkAPI.getState().auth.token;
-      return persistedToken !== null;
-    },
   }
 );

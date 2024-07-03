@@ -8,7 +8,7 @@ import DeleteModal from "../DeleteModal/DeleteModal";
 import Backdrop from "../Backdrop/Backdrop";
 import EditModal from "../EditModal/EditModal";
 
-export default function Contact({ data: { name, number, id } }) {
+export default function Contact({ data: { name, phoneNumber, _id } }) {
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
 
@@ -26,7 +26,7 @@ export default function Contact({ data: { name, number, id } }) {
         </p>
         <p className={css.para}>
           <FaPhoneAlt size="17" />
-          {number}
+          {phoneNumber}
         </p>
       </div>
       <div className={css.btnWrapper}>
@@ -47,15 +47,15 @@ export default function Contact({ data: { name, number, id } }) {
       </div>
       {isOpenDeleteModal && (
         <Backdrop onclose={handleCloseModal}>
-          <DeleteModal id={id} name={name} onClose={handleCloseModal} />
+          <DeleteModal id={_id} name={name} onClose={handleCloseModal} />
         </Backdrop>
       )}
       {isOpenEditModal && (
         <Backdrop onclose={handleCloseModal}>
           <EditModal
-            id={id}
+            id={_id}
             name={name}
-            number={number}
+            number={phoneNumber}
             onClose={handleCloseModal}
           />
         </Backdrop>
